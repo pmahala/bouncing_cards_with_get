@@ -25,28 +25,30 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(MyApp.title),
       ),
-      body: Container(
-        padding: EdgeInsets.all(24),
-        child: PageView.builder(
-          physics: BouncingScrollPhysics(),
-          controller: homePageController.pageController,
-          itemCount: Data.cards.length,
-          itemBuilder: (context, index) {
-            final cardData = Data.cards[index];
+      body: Obx(
+        () => Container(
+          padding: EdgeInsets.all(24),
+          child: PageView.builder(
+            physics: BouncingScrollPhysics(),
+            controller: homePageController.pageController.value,
+            itemCount: Data.cards.length,
+            itemBuilder: (context, index) {
+              final cardData = Data.cards[index];
 
-            final card = CardWidget(
-                color: cardData.color,
-                title: cardData.title,
-                urlImage: cardData.imgUrl,
-                subtitle: cardData.subtitle,
-                description: cardData.description);
+              final card = CardWidget(
+                  color: cardData.color,
+                  title: cardData.title,
+                  urlImage: cardData.imgUrl,
+                  subtitle: cardData.subtitle,
+                  description: cardData.description);
 
-            return card;
-          },
-          onPageChanged: (int index) => setState(
-            () {
-              homePageController.currentIndex = index.obs;
+              return card;
             },
+            onPageChanged: (int index) => setState(
+              () {
+                homePageController.updateCurrentIndex(index);
+              },
+            ),
           ),
         ),
       ),
