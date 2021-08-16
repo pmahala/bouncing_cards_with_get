@@ -1,7 +1,9 @@
 // import 'package:bouncing_card_example/animations/customshake.dart';
+import 'package:bouncing_cards/Page/homePageController.dart';
 import 'package:bouncing_cards/data/data.dart';
 import 'package:bouncing_cards/Widget/cardWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../main.dart';
 
@@ -11,8 +13,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final pageController = PageController(viewportFraction: 0.8);
-  int currentIndex = 0;
+  // final pageController = PageController(viewportFraction: 0.8);
+  // int currentIndex = 0;
+
+  final HomePageController homePageController = Get.put(HomePageController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.all(24),
         child: PageView.builder(
           physics: BouncingScrollPhysics(),
-          controller: pageController,
+          controller: homePageController.pageController,
           itemCount: Data.cards.length,
           itemBuilder: (context, index) {
             final cardData = Data.cards[index];
@@ -39,9 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
             return card;
           },
-          onPageChanged: (int index) => setState(() {
-            currentIndex = index;
-          }),
+          onPageChanged: (int index) => setState(
+            () {
+              homePageController.currentIndex = index.obs;
+            },
+          ),
         ),
       ),
     );
