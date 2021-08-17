@@ -1,9 +1,13 @@
 // import 'package:bouncing_card_example/animations/customshake.dart';
+// import 'package:bouncing_cards/Animation/customShake.dart';
 import 'package:bouncing_cards/Page/homePageController.dart';
 import 'package:bouncing_cards/data/data.dart';
 import 'package:bouncing_cards/Widget/cardWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
+
+import 'package:flutter/widgets.dart';
 
 import '../main.dart';
 
@@ -41,7 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   urlImage: cardData.imgUrl,
                   subtitle: cardData.subtitle,
                   description: cardData.description);
-
+              if (homePageController.currentIndex.value == index) {
+                return HeadShake(child: card);
+              }
               return card;
             },
             onPageChanged: (int index) => setState(
