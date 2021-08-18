@@ -1,6 +1,6 @@
 // import 'package:bouncing_card_example/animations/customshake.dart';
 // import 'package:bouncing_cards/Animation/customShake.dart';
-import 'homePageController.dart';
+import 'TutorialController.dart';
 import 'package:bouncing_cards/Helper/Data/data.dart';
 import 'package:bouncing_cards/Helper/Widget/cardWidget.dart';
 import 'package:flutter/material.dart';
@@ -11,16 +11,17 @@ import 'package:flutter/widgets.dart';
 
 import '../main.dart';
 
-class MyHomePage extends StatefulWidget {
+class TutorialPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _TutorialPageState createState() => _TutorialPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _TutorialPageState extends State<TutorialPage> {
   // final pageController = PageController(viewportFraction: 0.8);
   // int currentIndex = 0;
 
-  final HomePageController homePageController = Get.put(HomePageController());
+  final TutorialPageController tutorialPageController =
+      Get.put(TutorialPageController());
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.all(24),
           child: PageView.builder(
             physics: BouncingScrollPhysics(),
-            controller: homePageController.pageController.value,
+            controller: tutorialPageController.pageController.value,
             itemCount: Data.cards.length,
             itemBuilder: (context, index) {
               final cardData = Data.cards[index];
@@ -45,14 +46,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   urlImage: cardData.imgUrl,
                   subtitle: cardData.subtitle,
                   description: cardData.description);
-              if (homePageController.currentIndex.value == index) {
+              if (tutorialPageController.currentIndex.value == index) {
                 return HeadShake(child: card);
               }
               return card;
             },
             onPageChanged: (int index) => setState(
               () {
-                homePageController.updateCurrentIndex(index);
+                tutorialPageController.updateCurrentIndex(index);
               },
             ),
           ),
