@@ -1,4 +1,4 @@
-import 'package:bouncing_cards/dataModel/cardData.dart';
+import 'package:bouncing_cards/Helper/DataModel/cardData.dart';
 import 'package:flutter/material.dart';
 
 class Data {

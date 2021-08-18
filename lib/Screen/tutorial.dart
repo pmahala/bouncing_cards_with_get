@@ -1,7 +1,7 @@
 // import 'package:bouncing_card_example/animations/customshake.dart';
 // import 'package:bouncing_cards/Animation/customShake.dart';
-import 'package:bouncing_cards/Page/homePageController.dart';
-import 'package:bouncing_cards/data/data.dart';
+import 'homePageController.dart';
+import 'package:bouncing_cards/Helper/Data/data.dart';
 import 'package:bouncing_cards/Widget/cardWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
