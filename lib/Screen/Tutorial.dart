@@ -1,8 +1,8 @@
 // import 'package:bouncing_card_example/animations/customshake.dart';
-// import 'package:bouncing_cards/Animation/customShake.dart';
+// import 'package:bouncing_cards/Animation/CustomShake.dart';
 import 'TutorialController.dart';
-import 'package:bouncing_cards/Helper/Data/data.dart';
-import 'package:bouncing_cards/Helper/Widget/cardWidget.dart';
+import 'package:bouncing_cards/Helper/Data/Data.dart';
+import 'package:bouncing_cards/Helper/Widget/CardWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
