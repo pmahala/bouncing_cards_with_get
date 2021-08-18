@@ -1,4 +1,4 @@
-import 'package:bouncing_cards/Page/myHomePage.dart';
+import 'package:bouncing_cards/Page/tutorial.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
